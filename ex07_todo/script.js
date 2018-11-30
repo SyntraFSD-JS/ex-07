@@ -75,8 +75,10 @@ function doneBtnClick(todoItem) {
   // (look at html)
     const selectedParent = todoItem.closest('.box');
     todoItem.remove();
+    const newA = document.createElement('a');
+    newA.classList.add('remove-btn', 'fas', 'fa-times-circle', 'fa-2x');
+    selectedParent.appendChild(newA);
     doneList.appendChild(selectedParent);
-  
 }
 
 // 0/12
@@ -91,11 +93,6 @@ function todoListClick(event) {
   // handle click within #todo-list
   if (event.target.matches(".done-btn")) {
     doneBtnClick(event.target);
-    const newA = document.createElement('a');
-
-    newA.classList.add('remove-btn', 'fas', 'fa-check-circle', 'fa-2x')
-
-
   }
 }
 
