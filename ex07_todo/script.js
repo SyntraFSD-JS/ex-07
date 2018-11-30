@@ -22,16 +22,17 @@ function createNewTodo(text) {
 }
 
 // 0/2
-function updateTodoCount() {
+function updateTodoCount(todoCount) {
   // update #todo-count
   // with number of todo items in #todo-list
-    
+
 }
 
 // 0/2
 function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
+
 }
 
 // 0/2
@@ -43,13 +44,15 @@ function updateBothCounts() {
 function save() {
   // save value of #todo-input
   // and make new todo item
-
+    let inputValue = document.getElementById('textarea').innerHTML;
+    createNewTodo(inputValue);
 }
 
 // 0/4
 function clearAll() {
   // empty #todo-list
   // empty #done-list
+
 }
 
 // 0/8
@@ -88,6 +91,13 @@ function doneListClick(event) {
 // todoList
 // doneList
 
+saveBtn.addEventListener("click", save);
+
+clearAllBtn.addEventListener("click", );
+
+todoList.addEventListener("input", realTime);
+
+doneList.addEventListener("input", realTime);
 
 
 clearAll();
