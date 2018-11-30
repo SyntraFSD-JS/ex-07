@@ -70,6 +70,8 @@ function clearAll() {
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
+  doneList.appendChild(todoItem);
+  
 }
 
 // 0/12
@@ -82,6 +84,13 @@ function boxClick(box) {
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
+  if(event.target.matches('.done-btn')){
+    let todoItem = event.target.closest('.box');
+    event.target.classList.remove('done-btn','fa-check-circle');
+    event.target.classList.add('remove-btn','fa-times-circle');
+    doneBtnClick(todoItem);
+    updateBothCounts();
+  }
 }
 
 // 0/4
@@ -91,7 +100,11 @@ function removeBtnClick(doneItem) {
 
 //0/6
 function doneListClick(event) {
-  // handle click within #done-list
+  // handle click within #done-list`
+  if(event.target.matches('.remove-btn')){
+    todoItem = event.target.textContent;
+    removeBtnClick(todoItem);
+  }
 }
 
 // 0/8
