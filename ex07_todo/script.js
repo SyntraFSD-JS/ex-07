@@ -58,6 +58,7 @@ function save() {
   // and make new todo item
   const input = todoInput.value;
   createNewTodo(input);
+  todoInput.value = " ";
   return input;  
 }
 
@@ -71,6 +72,7 @@ function clearAll() {
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
+
 }
 
 // 0/12
