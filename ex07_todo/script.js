@@ -18,17 +18,23 @@ function createNewTodo(text) {
   // (look at html)
   const newDiv = document.createElement('div');
   newDiv.classList.add('box');
+  newDiv.innerHTML= '<p>' + text + '</p>';
+  newDiv.innerHTML += '<a class="done-btn fas fa-check-circle fa-2x"></a>';
   return newDiv;
 }
 
 // 0/2
 function updateTodoCount() {
+  const todolistcounter = todoList.querySelectorAll('.box');
+  todoCount.textContent = todolistcounter.length;
   // update #todo-count
   // with number of todo items in #todo-list
 }
 
 // 0/2
 function updateDoneCount() {
+  const donecounter = doneList.querySelectorAll('.box');
+  doneList.textContent = donecounter.length;
   // update #done-count
   // with number of done items in #done-list
 }
@@ -36,6 +42,8 @@ function updateDoneCount() {
 // 0/2
 function updateBothCounts() {
   // update both counts
+  updateTodoCount();
+  updateDoneCount();
 }
 
 // 0/2
@@ -46,6 +54,7 @@ function save() {
 
 // 0/4
 function clearAll() {
+
   // empty #todo-list
   // empty #done-list
 }
