@@ -4,24 +4,28 @@
 // clean code (indentation)
 
 // 0/7
-const todoInput;
-const saveBtn;
-const clearAllBtn;
-const todoList;
-const todoCount;
-const doneList;
-const doneCount;
+const todoInput = document.querySelector("#user-input");
+const saveBtn = document.querySelector("#save-btn");
+const clearAllBtn = document.querySelector("#clear-all-btn");
+const todoList = document.querySelector("#todo-list");
+const todoCount = document.querySelector("#todo-count");
+const doneList document.querySelector("#done-list");
+const doneCount document.querySelector("#done-count");
 
 // 0/8
 function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
+    const newBox = document.createElement('div');
+    newBox.classList.add('box');
+    return newBox;
 }
 
 // 0/2
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
+    
 }
 
 // 0/2
@@ -39,6 +43,7 @@ function updateBothCounts() {
 function save() {
   // save value of #todo-input
   // and make new todo item
+
 }
 
 // 0/4
@@ -82,5 +87,7 @@ function doneListClick(event) {
 // clearAllBtn
 // todoList
 // doneList
+
+
 
 clearAll();
