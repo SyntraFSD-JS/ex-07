@@ -58,24 +58,26 @@ function save() {
     const todoInputValue = todoInput.value;
     createNewTodo(todoInputValue);
     updateBothCounts(todoInputValue);
+    todoInput.value = "";
 }
 
 // 0/4
 function clearAll() {
-  // empty #todo-list
-  // empty #done-list
-  const box = document.querySelectorAll('.box');
-    box.forEach(element => {
-        element.remove();
-  });
-  updateBothCounts();
+    // empty #todo-list
+    // empty #done-list
+    const box = document.querySelectorAll('.box');
+        box.forEach(element => {
+            element.remove();
+    });
+    updateBothCounts();
 }
 
 // 0/8
 function doneBtnClick(todoItem) {
-  // move todo-item to #done-list
-  // (look at html)
-  
+    // move todo-item to #done-list
+    // (look at html)
+    const boxSelector = document.querySelector('.box');
+    boxSelector.appendChild(doneList);
 }
 
 // 0/12
@@ -87,9 +89,12 @@ function boxClick(box) {
 
 // 0/12
 function todoListClick(event) {
-  // handle click within #todo-list
-  const doneButton = event.target;
-  
+    // handle click within #todo-list
+    const doneButton = event.target;
+    if (doneButton.matches('.done-btn')) {
+        doneBtnClick(doneButton);
+    }
+    
 }
 
 // 0/4
@@ -113,5 +118,7 @@ function doneListClick(event) {
 
 saveBtn.addEventListener(('click'), save);
 clearAllBtn.addEventListener(('click'), clearAll);
+todoList.addEventListener(('click'), todoListClick);
+doneList.addEventListener(('click'), doneListClick);
 
 clearAll();
