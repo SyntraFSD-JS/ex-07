@@ -49,7 +49,6 @@ function updateDoneCount() {
 // 0/2
 function updateBothCounts() {
   // update both counts
-  //   const counts = this.value;
     updateTodoCount(newTotalTodo);
     updateDoneCount(newTotalDone);
 }
@@ -64,16 +63,18 @@ function save() {
     const newText = todoInput.value;
     createNewTodo(newText);
     updateTodoCount();
-    updateDoneCount();
 }
 
 // 0/4
 function clearAll() {
   // empty #todo-list
   // empty #done-list
-    if (event.target.matches('#clear-all-btn')){
-        todoList.remove();
-        doneList.remove;
+
+    todoList.innerHTML = '';
+    doneList.innerHTML = '';
+    updateTodoCount();
+    updateDoneCount();
+
 }
 
 // 0/8
@@ -125,4 +126,4 @@ clearAllBtn.addEventListener('click', clearAll);
 todoList.addEventListener('click', todoListClick);
 doneList.addEventListener('click', doneListClick);
 
-clearAll();
+
