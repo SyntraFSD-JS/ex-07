@@ -83,19 +83,27 @@ function boxClick(box) {
     // if box is .active remove active class
     // else add active class
     // only one todo-item can have the class active
-    todoList.forEach(value => {
-        
+    const boxSelector = document.querySelectorAll('.box')
+    boxSelector.forEach(value=>{
+        if(value === box){
+            value.classList.toggle('active');
+        } else{
+            value.classList.remove('active');
+        }
     });
-
 }
 
 // 0/12
 function todoListClick(event) {
     // handle click within #todo-list
+    const doneButton= event.target.closest('.box');
     if(event.target.matches('.done-btn')){
-        const doneButton= event.target.closest('.box');
+        
         doneBtnClick(doneButton);
       }
+    else if(event.target.matches('.box') || event.target.matches('.box p')){
+        boxClick(doneButton)
+    }
     updateBothCounts();
 }
 
