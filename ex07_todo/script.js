@@ -17,7 +17,7 @@ function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
 
-  let todoItem = document.createElement('div');
+  const todoItem = document.createElement('div');
 
   todoItem.innerHTML=`<p>${text}</p><a class="done-btn fas fa-check-circle fa-2x"></a>`;
   todoItem.classList.add('box');
@@ -32,7 +32,7 @@ function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
 
-  let toDo=todoList.querySelectorAll('.box');
+  const toDo=todoList.querySelectorAll('.box');
   todoCount.textContent=toDo.length;
 }
 
@@ -41,7 +41,7 @@ function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
 
-  let done =doneList.querySelectorAll('.box');
+  const done =doneList.querySelectorAll('.box');
   doneCount.textContent=done.length;
 }
 
@@ -58,7 +58,7 @@ function save() {
   // save value of #todo-input
   // and make new todo item
 
-  let text = todoInput.value;
+  const text = todoInput.value;
   todoInput.value='';
   createNewTodo(text);
 }
@@ -95,14 +95,16 @@ function boxClick(box) {
   // if box is .active remove active class
   // else add active class
   // only one todo-item can have the class active
-  let todo= todoList.querySelectorAll('.box');
+  const todo= todoList.querySelectorAll('.box');
 
   todo.forEach(value=>{
 
-      if(!value.classList.contains('.active') && value === box){
-        value.classList.add('active');
+      if(value === box){
+
+        value.classList.toggle('active');
       }
         else{
+
           value.classList.remove('active');
         }
     }
@@ -117,10 +119,12 @@ function todoListClick(event) {
     const doneBtn= event.target.closest('.box');
     doneBtnClick(doneBtn);
   }
-    else if(event.target.matches('.box')){
+    else if(event.target.matches('.box p') || event.target.matches('.box')){
 
-        boxClick(event.target);
+      const box = event.target.closest('.box');
+      boxClick(box);
     }
+  
 }
 
 // 0/4
