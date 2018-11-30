@@ -18,6 +18,8 @@ function createNewTodo(text) {
   // (look at html)
     const newBox = document.createElement('div');
     newBox.classList.add('box');
+    newBox.innerHTML = todoInput.value + '<a class="done-btn fas fa-check-circle fa-2x"></a>';
+
     return newBox;
 }
 
@@ -45,7 +47,7 @@ function save() {
   // save value of #todo-input
   // and make new todo item
     let addItem = createNewTodo(todoInput);
-    todoList.appendChild(addItem.);
+    todoList.appendChild(addItem);
 
 }
 
@@ -53,7 +55,7 @@ function save() {
 function clearAll() {
   // empty #todo-list
   // empty #done-list
-    let emptyAll = document.querySelectorAll("#todo-list", "#done-list");
+    let emptyAll = document.querySelectorAll(todoList, doneList);
 
     for (let i = 0; i < emptyAll.count; i++) {
         let list = emptyAll[i];
