@@ -81,6 +81,16 @@ function boxClick(box) {
     // if box is .active remove active class
     // else add active class
     // only one todo-item can have the class active
+    /*for (let i = 0; i < doneList.children.length; i++){
+        const doneItem = doneList.childNodes[i];
+
+            doneItem.classList.remove('active');
+
+    } */
+
+    if (event.target.matches(".active")) {
+        box.classList.remove(".active");
+    }
 
 }
 
@@ -89,7 +99,10 @@ function todoListClick(event) {
     // handle click within #todo-list
     if (event.target.matches(".done-btn")) {
         doneBtnClick(event.target);
+    } else if(event.target.matches(".box")) {
+        boxClick(event.target);
     }
+}
 
 // 0/4
     function removeBtnClick(doneItem) {
