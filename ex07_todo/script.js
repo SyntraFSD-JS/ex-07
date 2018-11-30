@@ -21,10 +21,16 @@ function createNewTodo(text) {
   const par = document.createElement('p');
   newDiv.appendChild(par);
   newDiv.querySelector("p").textContent = text;
+
+  const arrow = document.createElement('div');
+  const doneButton = document.createElement('div');
+  doneButton.classList.add('done-btn');
+  doneButton.innerHTML = ('fas fa-check-circle fa-2x');
   return par;
 }
+
 // 0/2
-function updateTodoCount(todoCount) {
+function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
   const numberOfInputs = todoList.children.length;
@@ -33,7 +39,7 @@ function updateTodoCount(todoCount) {
 }
 
 // 0/2
-function updateDoneCount(doneCount) {
+function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
   const numberOfInputs = doneList.children.length;
@@ -57,6 +63,7 @@ function save() {
   // and make new todo item
   createNewTodo(text);
   todoInput.value = "";
+  updateTodoCount();
 }
 
 // 0/4
@@ -70,6 +77,7 @@ function clearAll() {
   while (doneList.hasChildNodes()) {
     doneList.removeChild(doneList.lastChild);
   };
+  updateBothCounts();
 }
 
 // 0/8
@@ -77,8 +85,7 @@ function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
 
-
-
+updateBothCounts();
 }
 
 // 0/12
@@ -93,8 +100,10 @@ function boxClick(box) {
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
+if (event.target.matches('.done-btn')) {
 
-  
+}
+
 }
 
 // 0/4
@@ -117,6 +126,6 @@ clearAllBtn.addEventListener('click', clearAll);
 // todoList
 
 // doneList
-doneButton.addEventListener('click', doneBtnClick);
+//doneButton.addEventListener('click', doneBtnClick);
 
 clearAll();
