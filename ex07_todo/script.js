@@ -15,13 +15,14 @@ const doneCount = document.querySelectorAll('#done-count');
 // 0/8
 function createNewTodo(text) {
   // return new .box for #todo-list
-  const newDiv = todoList.createElement('div');
+  const newDiv = document.createElement('div');
   newDiv.classList.add('box');
-  const newTodo = newDiv.createElement('p');
- newTodo.innerHTML = text;
-  return newTodo;
+  todoList.appendChild(newDiv);
+  const par = document.createElement('p');
+  newDiv.appendChild(par);
+  newDiv.querySelector("p").textContent= text;
+ return par;
 }
-
 // 0/2
 function updateTodoCount() {
   // update #todo-count
