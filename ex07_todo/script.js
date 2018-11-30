@@ -16,6 +16,9 @@ const doneCount = document.querySelector ('#done-count');
 function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
+  const newDiv = document.createElement('div');
+  newDiv.classList.add('box');
+  return newDiv;
 }
 
 // 0/2
