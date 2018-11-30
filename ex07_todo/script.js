@@ -50,6 +50,12 @@ function updateBothCounts() {
 function save() {
   // save value in #todo-input
   // and make new todo item
+    //wat moet je saven? de todoInput (al gedefineerd)
+    //waar? method appendChild
+    //createNewTodo
+
+    var text = document.getElementById('todo-input');
+
 }
 
 // 0/4
