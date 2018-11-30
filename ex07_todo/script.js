@@ -62,6 +62,9 @@ function save(todoList) {
 function clearAll() {
   // empty #todo-list
   // empty #done-list
+  //if (event.target.matches)
+  //todoList.remove();
+  //doneList.remove();
 }
 
 // 0/8
@@ -96,6 +99,8 @@ function todoListClick(event) {
 // 0/4
 function removeBtnClick(doneItem) {
   // remove doneItem
+  const removed = doneItem.closest('.box');
+  removed.remove();
 }
 
 //0/6
@@ -104,8 +109,7 @@ function doneListClick(event) {
   if (event.target.matches('.remove-btn')){
     removeBtnClick(event.target);
     updateBothCounts();
-  }
-    
+  }   
 }
 
 // 0/8
