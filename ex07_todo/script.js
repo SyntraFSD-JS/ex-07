@@ -18,24 +18,31 @@ function createNewTodo(text) {
   const newDiv = todoList.appendChild('div');
   newDiv.classList.add('box');
   return newDiv;
-  // (look at html)
 }
 
 // 0/2
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
+  const numberOfInputs = todoList.children.length;
+  todoCount.textContent = numberOfInputs;
 }
 
 // 0/2
 function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
+  const numberOfInputs = doneList.children.length;
+  doneCount.textContent = numberOfInputs;
+
 }
 
 // 0/2
 function updateBothCounts() {
   // update both counts
+  updateTodoCount();
+  updateDoneCount();
+
 }
 
 // 0/2
@@ -44,8 +51,6 @@ function save() {
   let text = todoInput.value;
   // and make new todo item
   createNewTodo.innerHTML = text;
-
-
 }
 
 // 0/4
@@ -54,7 +59,7 @@ function clearAll() {
   while (todoList.hasChildNodes()) {
     todoList.removeChild(todoList.lastChild);
   }
- 
+
   // empty #done-list
   while doneList.hasChildNodes()) {
     doneList.removeChild(doneList.lastChild);
