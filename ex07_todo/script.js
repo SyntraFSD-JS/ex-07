@@ -53,6 +53,7 @@ function save() {
   let inputText = todoInput.value;
   const newDiv = createNewTodo(inputText);
   todoList.appendChild(newDiv);
+  todoInput.value = '';
   updateBothCounts();
 }
 
@@ -82,6 +83,17 @@ function boxClick(box) {
   // if box is .active remove active class
   // else add active class
   // only one todo-item can have the class active
+  /* listDiv = todoList.queryselectorAll('.active');
+  for (let i=0; i < listDiv.length; i++ )
+    
+
+
+  if (box.target.matches('.active')){
+    box.classList.remove('active');
+  }
+  else {
+    box.classList.add('active')  ;
+  }*/
 }
 
 // 0/12
@@ -120,5 +132,5 @@ saveBtn.addEventListener('click',save);
 clearAllBtn.addEventListener('click',clearAll);
 todoList.addEventListener('click',todoListClick);
 doneList.addEventListener('click',doneListClick);
-
+todoList.addEventListener('click',boxClick);
 clearAll();
