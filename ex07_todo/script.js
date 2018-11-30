@@ -15,7 +15,17 @@ const doneCount = document.querySelector('#done-count');
 // 0/8
 function createNewTodo(text) {
   // return new .box for #todo-list
+  //creates div with class box
+  const newBox = document.createElement('div');
+  newBox.classList.add('box');
+  //create the <p> element with text
+  let textBox = document.createElement('p');
+  let t = document.createTextNode(text);
+  textBox.appendChild(t);
+  //create the <a> element
+  newBox.innerHTML = '<a class="done-btn fas fa-check-circle fa-2x"></a>'
   // (look at html)
+  return newBox;
 }
 
 // 0/2
