@@ -87,6 +87,17 @@ function boxClick(box) {
   // if box is .active remove active class
   // else add active class
   // only one todo-item can have the class active
+
+  if (box.classList.contains('active')){
+    box.classList.remove('active');
+  } else {
+    const boxes = todoList.querySelectorAll('.box');
+    for (let i = 0; i < boxes.length; i++ ) {
+      boxes[i].classList.remove('active');
+    }
+    box.classList.add('active');
+  }
+
 }
 
 // 0/12
@@ -95,6 +106,9 @@ function todoListClick(event) {
   if (event.target.matches('.done-btn')) {
     doneBtnClick(event.target);
     updateBothCounts();
+  } else if (event.target.matches('.box') || event.target.matches('p') ){
+    let parent = event.target.closest('.box');
+    boxClick(parent);
   }
 }
 
@@ -127,5 +141,4 @@ todoList.addEventListener('click', todoListClick);
 doneList.addEventListener('click', doneListClick);
 
 clearAll();
-updateTodoCount();
-updateDoneCount();
+updateBothCounts();
