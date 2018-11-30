@@ -62,9 +62,10 @@ function save(todoList) {
 function clearAll() {
   // empty #todo-list
   // empty #done-list
-  //if (event.target.matches)
-  //todoList.remove();
-  //doneList.remove();
+  todoList.innerHTML = '';
+  doneList.innerHTML = '';
+  updateBothCounts();
+
 }
 
 // 0/8
