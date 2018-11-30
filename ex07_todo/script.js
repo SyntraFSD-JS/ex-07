@@ -59,6 +59,7 @@ function save() {
   // and make new todo item
 
   let text = todoInput.value;
+  todoInput.value='';
   createNewTodo(text);
 }
 
@@ -86,6 +87,7 @@ function doneBtnClick(todoItem) {
 
   todoItem.remove();
   doneList.appendChild(todo);
+  updateBothCounts();
 }
 
 // 0/12
@@ -133,7 +135,7 @@ function removeBtnClick(doneItem) {
 function doneListClick(event) {
   // handle click within #done-list
   if(event.target.matches('.remove-btn')){
-    
+
     const removeBtn = event.target.closest(".box");
     removeBtnClick(removeBtn);
   }
