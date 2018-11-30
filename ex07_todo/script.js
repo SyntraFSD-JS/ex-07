@@ -76,6 +76,10 @@ function clearAll() {
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
+
+  const todo = todoItem;
+  todoItem.remove();
+  doneList.appendChild(todo);
 }
 
 // 0/12
@@ -83,16 +87,16 @@ function boxClick(box) {
   // if box is .active remove active class
   // else add active class
   // only one todo-item can have the class active
-  console.log(box);
   let todo= todoList.querySelectorAll('.box');
 
   todo.forEach(value=>{
 
       if(!value.classList.contains('.active') && value === box){
         value.classList.add('active');
-      }else{
-        value.classList.remove('active');
       }
+        else{
+          value.classList.remove('active');
+        }
     }
   );
 }
@@ -100,23 +104,28 @@ function boxClick(box) {
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
-  if(event.target.matches('.box')){
-    boxClick(event.target);
+  if(event.target.matches('.done-btn')){
+    const doneBtn= event.target.closest('.box');
+    doneBtnClick(doneBtn);
   }
+    else if(event.target.matches('.box')){
+        boxClick(event.target);
+    }
 }
 
 // 0/4
 function removeBtnClick(doneItem) {
   // remove doneItem
-
   doneItem.remove();
+  updateDoneCount();
+
 }
 
 //0/6
 function doneListClick(event) {
   // handle click within #done-list
-  if(event.target.matches('.box')){
-    const removeBtn = event.target.closest(".remove-btn");
+  if(event.target.matches('.remove-btn')){
+    const removeBtn = event.target.closest(".box");
     removeBtnClick(removeBtn);
   }
 }
@@ -128,9 +137,9 @@ function doneListClick(event) {
 // clearAllBtn
 // todoList
 // doneList
+
 saveBtn.addEventListener('click',save);
 clearAllBtn.addEventListener('click',clearAll);
 todoList.addEventListener('click',todoListClick);
 doneList.addEventListener('click',doneListClick);
-
 clearAll();
