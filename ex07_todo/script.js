@@ -14,8 +14,8 @@ const doneCount = document.querySelector("#done-count");
 
 // 0/8
 function createNewTodo(text) {
-  // return new .box for #todo-list
-  // (look at html)
+    // return new .box for #todo-list
+    // (look at html)
     const newBox = document.createElement('div');
     newBox.classList.add('box');
     newBox.innerHTML = todoInput.value + '<a class="done-btn fas fa-check-circle fa-2x"></a>';
@@ -25,16 +25,16 @@ function createNewTodo(text) {
 
 // 0/2
 function updateTodoCount() {
-  // update #todo-count
-  // with number of todo items in #todo-list
+    // update #todo-count
+    // with number of todo items in #todo-list
     const todoCounter = todoList.children.length;
     todoCount.innerHTML = todoCounter;
 }
 
 // 0/2
 function updateDoneCount() {
-  // update #done-count
-  // with number of done items in #done-list
+    // update #done-count
+    // with number of done items in #done-list
     const doneCounter = doneList.children.length;
     doneCount.innerHTML = doneCounter;
 
@@ -42,15 +42,15 @@ function updateDoneCount() {
 
 // 0/2
 function updateBothCounts() {
-  // update both counts
+    // update both counts
     updateTodoCount();
     updateDoneCount();
 }
 
 // 0/2
 function save() {
-  // save value of #todo-input
-  // and make new todo item
+    // save value of #todo-input
+    // and make new todo item
     let addItem = createNewTodo(todoInput);
     todoList.appendChild(addItem);
     updateBothCounts();
@@ -59,8 +59,8 @@ function save() {
 
 // 0/4
 function clearAll() {
-  // empty #todo-list
-  // empty #done-list
+    // empty #todo-list
+    // empty #done-list
     todoList.innerHTML = '';
     doneList.innerHTML = '';
     updateBothCounts();
@@ -68,32 +68,39 @@ function clearAll() {
 
 // 0/8
 function doneBtnClick(todoItem) {
-  // move todo-item to #done-list
-  // (look at html)
-
-}
-
-// 0/12
-function boxClick(box) {
-  // if box is .active remove active class
-  // else add active class
-  // only one todo-item can have the class active
-}
+    // move todo-item to #done-list
+    // (look at html)
+    const todoItemParent = todoItem.closest('.box');
+    doneList.appendChild(todoItemParent);
+    todoItemParent.innerHTML = todoInput.value + '<a class="remove-btn fas fa-times-circle fa-2x"></a>';
+    updateBothCounts();
+    }
 
 // 0/12
-function todoListClick(event) {
-  // handle click within #todo-list
-}
+    function boxClick(box) {
+        // if box is .active remove active class
+        // else add active class
+        // only one todo-item can have the class active
+
+    }
+
+// 0/12
+    function todoListClick(event) {
+        // handle click within #todo-list
+        if (event.target.matches(".done-btn")) {
+            doneBtnClick(event.target);
+        }
+    }
 
 // 0/4
-function removeBtnClick(doneItem) {
-  // remove doneItem
-}
+    function removeBtnClick(doneItem) {
+        // remove doneItem
+    }
 
 //0/6
-function doneListClick(event) {
-  // handle click within #done-list
-}
+    function doneListClick(event) {
+        // handle click within #done-list
+    }
 
 // 0/8
 
@@ -103,8 +110,10 @@ function doneListClick(event) {
 // todoList
 // doneList
 
-saveBtn.addEventListener("click", save);
+    saveBtn.addEventListener("click", save);
 
-clearAllBtn.addEventListener("click", clearAll);
+    clearAllBtn.addEventListener("click", clearAll);
 
-clearAll();
+    todoList.addEventListener("click", todoListClick);
+
+    clearAll();
