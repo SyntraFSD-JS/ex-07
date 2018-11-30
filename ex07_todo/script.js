@@ -17,15 +17,10 @@ function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
     const newBox = document.createElement('div');
-    const textElement = document.createElement('p');
-    const link = document.createElement('a');
-    newBox.setAttribute("class", "box");
-    textElement.textContent = text;
-    link.setAttribute("class","done-btn fas fa-check-circle fa-2x");
-    newBox.appendChild(textElement);
-    newBox.appendChild(link);
+    newBox.innerHTML=`<p>${text}</p><a class="done-btn fas fa-check-circle fa-2x"></a>`;
+    newBox.classList.add('box');
     todoList.appendChild(newBox);
-    return newBox;
+    updateTodoCount();
 }
 
 // 0/2
@@ -76,10 +71,13 @@ function clearAll() {
 function doneBtnClick(todoItem) {
     // move todo-item to #done-list
     // (look at html)
-    const boxSelector = todoItem.closest('.box');
-    doneList.appendChild(boxSelector);
-    const className = todoItem.closest('.done-btn')
-    boxSelector.removeChild(className);
+    const a = todoItem.querySelector('.done-btn');
+    a.classList.remove('done-btn');
+    a.classList.remove('fa-check-circle');
+    a.classList.add('remove-btn');
+    a.classList.add('fa-times-circle');
+    todoItem.remove();
+    doneList.appendChild(todoItem);
 }
 
 // 0/12
@@ -92,11 +90,11 @@ function boxClick(box) {
 // 0/12
 function todoListClick(event) {
     // handle click within #todo-list
-    const doneButton = event.target;
-    if (doneButton.matches('.done-btn')) {
+    if(event.target.matches('.done-btn')){
+        const doneButton= event.target.closest('.box');
         doneBtnClick(doneButton);
-    }
-    updateBothCounts();
+      }
+      updateBothCounts();
 }
 
 // 0/4
