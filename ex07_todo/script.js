@@ -17,12 +17,13 @@ function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
     const newBox = document.createElement('div');
-    const ptag = document.createElement('p');
+    const textElement = document.createElement('p');
     const link = document.createElement('a');
     newBox.setAttribute("class", "box");
+    //textElement.textContent(text);
     link.setAttribute("class","done-btn fas fa-check-circle fa-2x");
     todoList.appendChild(newBox);
-    newBox.appendChild(ptag);
+    newBox.appendChild(textElement);
     newBox.appendChild(link);
     return newBox;
 }
@@ -56,7 +57,7 @@ function save() {
     // and make new todo item
     const todoInputValue = todoInput.value;
     createNewTodo(todoInputValue);
-    updateBothCounts();
+    updateBothCounts(todoInputValue);
 }
 
 // 0/4
