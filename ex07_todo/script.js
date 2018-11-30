@@ -18,9 +18,16 @@ function createNewTodo(text) {
   // (look at html)
   const newDiv = document.createElement('div');
   const newP = document.createElement('p');
+  const newA = document.createElement('a');
+  const input = todoInput.value;
+
   newP.textContent = input;
+
+  newA.classList.add('done-btn', 'fas', 'fa-check-circle', 'fa-2x');
+
   newDiv.classList.add('box');
   newDiv.appendChild(newP);
+  newDiv.appendChild(newA);
   todoList.appendChild(newDiv);
   
 
