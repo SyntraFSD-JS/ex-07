@@ -16,7 +16,9 @@ const doneCount = document.querySelector('#done-count');
 function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
-
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('box');
+    return newDiv;
 
 }
 
@@ -24,6 +26,7 @@ function createNewTodo(text) {
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
+
 }
 
 // 0/2
