@@ -50,7 +50,10 @@ De screencast staat ook in mp4 en webm formaat in de images folder
 
 [Screencast](https://raw.githubusercontent.com/SyntraFSD-JS/ex-07/master/images/screencast.gif "Screencast")
 
-Bekijk ook aandachtig 
+Als al het voorgaande gelukt is kijk dan naar de onderstaande screencast voor het 
+volgende deel van de oefening:
+
+[Screencast 2](https://raw.githubusercontent.com/SyntraFSD-JS/ex-07/master/images/screencast2.gif "Screencast 2")
   
 
 
