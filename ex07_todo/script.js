@@ -16,9 +16,14 @@ const doneCount=document.querySelector('#done-count');
 function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
+
   let todoItem = document.createElement('div');
+
   todoItem.innerHTML=`<p>${text}</p><a class="done-btn fas fa-check-circle fa-2x"></a>`;
+  todoItem.classList.add('box');
+
   todoList.appendChild(todoItem);
+  updateTodoCount();
 }
 
 
@@ -26,23 +31,33 @@ function createNewTodo(text) {
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
+
+  let toDo=todoList.querySelectorAll('.box');
+  todoCount.textContent=toDo.length;
 }
 
 // 0/2
 function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
+
+  let done =doneList.querySelectorAll('.box');
+  doneCount.textContent=done.length;
 }
 
 // 0/2
 function updateBothCounts() {
   // update both counts
+
+  updateDoneCount();
+  updateTodoCount();
 }
 
 // 0/2
 function save() {
   // save value of #todo-input
   // and make new todo item
+
   let text = todoInput.value;
   createNewTodo(text);
 }
@@ -51,8 +66,10 @@ function save() {
 function clearAll() {
   // empty #todo-list
   // empty #done-list
+
   todoList.innerHTML="";
   doneList.innerHTML="";
+  updateBothCounts();
 }
 
 // 0/8
@@ -66,11 +83,26 @@ function boxClick(box) {
   // if box is .active remove active class
   // else add active class
   // only one todo-item can have the class active
+  console.log(box);
+  let todo= todoList.querySelectorAll('.box');
+
+  todo.forEach(value=>{
+
+      if(!value.classList.contains('.active') && value === box){
+        value.classList.add('active');
+      }else{
+        value.classList.remove('active');
+      }
+    }
+  );
 }
 
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
+  if(event.target.matches('.box')){
+    boxClick(event.target);
+  }
 }
 
 // 0/4
