@@ -73,11 +73,10 @@ function clearAll() {
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
-
-  if (event.target.matches(".done-btn")) {
-    const selectedParent = todoItem.target.closest('.box');
+    const selectedParent = todoItem.closest('.box');
+    todoItem.remove();
     doneList.appendChild(selectedParent);
-  }
+  
 }
 
 // 0/12
@@ -90,9 +89,11 @@ function boxClick(box) {
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
-  doneBtnClick(event);
   if (event.target.matches(".done-btn")) {
-    doneBtn.closest.classList.remove("done-btn");
+    doneBtnClick(event.target);
+    const newA = document.createElement('a');
+
+    newA.classList.add('remove-btn', 'fas', 'fa-check-circle', 'fa-2x')
 
 
   }
