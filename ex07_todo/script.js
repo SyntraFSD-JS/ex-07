@@ -27,21 +27,24 @@ function createNewTodo(text) {
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
-    todoCount.children.length;
-
+    const todoCounter = todoList.children.length;
+    todoCount.innerHTML = todoCounter;
 }
 
 // 0/2
 function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
-    doneCount.children.length;
+    const doneCounter = doneList.children.length;
+    doneCount.innerHTML = doneCounter;
 
 }
 
 // 0/2
 function updateBothCounts() {
   // update both counts
+    updateTodoCount();
+    updateDoneCount();
 }
 
 // 0/2
@@ -50,6 +53,7 @@ function save() {
   // and make new todo item
     let addItem = createNewTodo(todoInput);
     todoList.appendChild(addItem);
+    updateBothCounts();
 
 }
 
@@ -59,12 +63,14 @@ function clearAll() {
   // empty #done-list
     todoList.innerHTML = '';
     doneList.innerHTML = '';
+    updateBothCounts();
 }
 
 // 0/8
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
+
 }
 
 // 0/12
@@ -100,3 +106,5 @@ function doneListClick(event) {
 saveBtn.addEventListener("click", save);
 
 clearAllBtn.addEventListener("click", clearAll);
+
+clearAll();
