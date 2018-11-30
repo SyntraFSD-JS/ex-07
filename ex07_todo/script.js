@@ -13,17 +13,19 @@ const doneList = document.querySelector('#done-list');
 const doneCount = document.querySelector('#done-count');
 
 // 0/8
-function createNewTodo(text) {
+function createNewTodo(textVal) {
   // return new .box for #todo-list
   //creates div with class box
   const newBox = document.createElement('div');
   newBox.classList.add('box');
   //create the <p> element with text
   let textBox = document.createElement('p');
-  let t = document.createTextNode(text);
-  textBox.appendChild(t);
+  textBox.textContent = textVal;
+  newBox.appendChild(textBox);
   //create the <a> element
-  newBox.innerHTML = '<a class="done-btn fas fa-check-circle fa-2x"></a>';
+  newBox.innerHTML += '<a class="done-btn fas fa-check-circle fa-2x"></a>';
+  //add all new items to the todoList
+  todoList.appendChild(newBox);
 }
 
 // 0/2
@@ -44,7 +46,7 @@ function updateBothCounts() {
 }
 
 // 0/2
-function save() {
+function save(todoList) {
   // save value of #todo-input
   const textVal = todoInput.value;
   // and make new todo item
@@ -89,7 +91,7 @@ function doneListClick(event) {
 
 //add eventListeners to
 // saveBtn
-saveBtn.addEventListener('click', save());
+saveBtn.addEventListener('click', save);
 // clearAllBtn
 clearAllBtn.addEventListener('click', clearAll());
 // todoList
