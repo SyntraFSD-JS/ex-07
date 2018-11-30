@@ -79,8 +79,12 @@ function doneListClick(event) {
 
 //add eventListeners to
 // saveBtn
+saveBtn.addEventListener('click', createNewTodo());
 // clearAllBtn
+clearAllBtn.addEventListener('click', clearAll());
 // todoList
+todoList.addEventListener('click', todoListClick());
 // doneList
+doneList.addEventListener('click', doneListClick());
 
 clearAll();
