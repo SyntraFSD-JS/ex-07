@@ -74,21 +74,21 @@ function doneBtnClick(todoItem) {
     doneList.appendChild(todoItemParent);
     todoItemParent.innerHTML = todoInput.value + '<a class="remove-btn fas fa-times-circle fa-2x"></a>';
     updateBothCounts();
-    }
+}
 
 // 0/12
-    function boxClick(box) {
-        // if box is .active remove active class
-        // else add active class
-        // only one todo-item can have the class active
+function boxClick(box) {
+    // if box is .active remove active class
+    // else add active class
+    // only one todo-item can have the class active
 
-    }
+}
 
 // 0/12
-    function todoListClick(event) {
-        // handle click within #todo-list
-        if (event.target.matches(".done-btn")) {
-            doneBtnClick(event.target);
+function todoListClick(event) {
+    // handle click within #todo-list
+    if (event.target.matches(".done-btn")) {
+        doneBtnClick(event.target);
     }
 
 // 0/4
