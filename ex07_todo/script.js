@@ -24,9 +24,10 @@ function createNewTodo(text) {
 }
 
 // 0/2
-function updateTodoCount(todoCount) {
+function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
+    todoCount.children.length;
 
 }
 
@@ -34,6 +35,7 @@ function updateTodoCount(todoCount) {
 function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
+    doneCount.children.length;
 
 }
 
@@ -55,12 +57,8 @@ function save() {
 function clearAll() {
   // empty #todo-list
   // empty #done-list
-    let emptyAll = document.querySelectorAll(todoList, doneList);
-
-    for (let i = 0; i < emptyAll.count; i++) {
-        let list = emptyAll[i];
-        list.remove();
-    }
+    todoList.innerHTML = '';
+    doneList.innerHTML = '';
 }
 
 // 0/8
@@ -102,6 +100,3 @@ function doneListClick(event) {
 saveBtn.addEventListener("click", save);
 
 clearAllBtn.addEventListener("click", clearAll);
-
-
-clearAll();
