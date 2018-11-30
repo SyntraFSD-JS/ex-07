@@ -51,6 +51,7 @@ function save(todoList) {
   const textVal = todoInput.value;
   // and make new todo item
   createNewTodo(textVal);
+  updateTodoCount();
 }
 
 // 0/4
@@ -85,6 +86,7 @@ function removeBtnClick(doneItem) {
 //0/6
 function doneListClick(event) {
   // handle click within #done-list
+
 }
 
 // 0/8
@@ -93,7 +95,7 @@ function doneListClick(event) {
 // saveBtn
 saveBtn.addEventListener('click', save);
 // clearAllBtn
-clearAllBtn.addEventListener('click', clearAll());
+clearAllBtn.addEventListener('click', clearAll);
 // todoList
 todoList.addEventListener('click', todoListClick());
 // doneList
