@@ -76,7 +76,7 @@ function clearAll() {
 function doneBtnClick(todoItem) {
     // move todo-item to #done-list
     // (look at html)
-    const boxSelector = document.querySelector('.box');
+    const boxSelector = document.closest('.box');
     boxSelector.appendChild(doneList);
 }
 
