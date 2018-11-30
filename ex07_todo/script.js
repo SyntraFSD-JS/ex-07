@@ -11,6 +11,7 @@ const todoList = document.querySelector("#todo-list");
 const todoCount = document.querySelector("#todo-count");
 const doneList = document.querySelector("#done-list");
 const doneCount = document.querySelector("#done-count");
+const doneBtn = document.querySelectorAll(".done-btn");
 
 // 0/8
 function createNewTodo(text) {
@@ -73,6 +74,10 @@ function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
 
+  if (event.target.matches(".done-btn")) {
+    const selectedParent = todoItem.target.closest('.box');
+    doneList.appendChild(selectedParent);
+  }
 }
 
 // 0/12
@@ -85,6 +90,12 @@ function boxClick(box) {
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
+  doneBtnClick(event);
+  if (event.target.matches(".done-btn")) {
+    doneBtn.closest.classList.remove("done-btn");
+
+
+  }
 }
 
 // 0/4
@@ -106,5 +117,6 @@ function doneListClick(event) {
 // doneList
 
 saveBtn.addEventListener("click", save);
+todoList.addEventListener("click", todoListClick);
 
 clearAll();
