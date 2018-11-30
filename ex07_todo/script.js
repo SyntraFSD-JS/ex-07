@@ -11,7 +11,6 @@ const todoList = document.querySelector("#todo-list");
 const todoCount = document.querySelector("#todo-count");
 const doneList = document.querySelector("#done-list");
 const doneCount = document.querySelector("#done-count");
-const doneBtn = document.querySelectorAll(".done-btn");
 
 // 0/8
 function createNewTodo(text) {
@@ -40,17 +39,21 @@ function createNewTodo(text) {
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
+  todoCount.innerHTML = todoList.childElementCount;
 }
 
 // 0/2
 function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
+  doneCount.innerHTML = doneList.childElementCount;
 }
 
 // 0/2
 function updateBothCounts() {
   // update both counts
+  updateTodoCount();
+  updateDoneCount();
 }
 
 // 0/2
@@ -60,6 +63,7 @@ function save() {
   const input = todoInput.value;
   createNewTodo(input);
   todoInput.value = " ";
+  updateBothCounts();
   return input;  
 }
 
@@ -67,6 +71,8 @@ function save() {
 function clearAll() {
   // empty #todo-list
   // empty #done-list
+  todoList.innerHTML = '';
+  doneList.innerHTML= '';
 }
 
 // 0/8
@@ -75,10 +81,13 @@ function doneBtnClick(todoItem) {
   // (look at html)
     const selectedParent = todoItem.closest('.box');
     todoItem.remove();
+
     const newA = document.createElement('a');
     newA.classList.add('remove-btn', 'fas', 'fa-times-circle', 'fa-2x');
     selectedParent.appendChild(newA);
     doneList.appendChild(selectedParent);
+
+    updateBothCounts();
 }
 
 // 0/12
@@ -99,11 +108,18 @@ function todoListClick(event) {
 // 0/4
 function removeBtnClick(doneItem) {
   // remove doneItem
+  const selectedParent = doneItem.closest('.box');
+  selectedParent.remove();
+
+  updateBothCounts();
 }
 
 //0/6
 function doneListClick(event) {
   // handle click within #done-list
+  if (event.target.matches(".remove-btn")) {
+    removeBtnClick(event.target);
+  }
 }
 
 // 0/8
@@ -116,5 +132,8 @@ function doneListClick(event) {
 
 saveBtn.addEventListener("click", save);
 todoList.addEventListener("click", todoListClick);
+clearAllBtn.addEventListener("click", clearAll);
+doneList.addEventListener("click", doneListClick);
+
 
 clearAll();
