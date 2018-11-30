@@ -16,12 +16,21 @@ const doneCount = document.querySelector('#done-count');
 function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
+    const newBox = document.createElement('div');
+    const text = document.createElement('p');
+    const link = document.createElement('a');
+    newBox.setAttribute("class", "box");
+    link.setAttribute("class","done-btn fas fa-check-circle fa-2x");
+    
+    
 }
 
 // 0/2
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
+    const numberOfInput = todoList.children.length;
+    todoCount.textContent = numberOfInput;
 }
 
 // 0/2
@@ -37,8 +46,10 @@ function updateBothCounts() {
 
 // 0/2
 function save() {
-  // save value of #todo-input
-  // and make new todo item
+    // save value of #todo-input
+    // and make new todo item
+    const todoInputValue = todoInput.value;
+    createNewTodo();
 }
 
 // 0/4
