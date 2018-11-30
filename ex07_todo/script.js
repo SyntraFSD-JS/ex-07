@@ -89,17 +89,22 @@ function doneBtnClick(todoItem) {
         // handle click within #todo-list
         if (event.target.matches(".done-btn")) {
             doneBtnClick(event.target);
-        }
     }
 
 // 0/4
     function removeBtnClick(doneItem) {
         // remove doneItem
+        const doneItemParent = doneItem.closest('.box');
+        doneItemParent.remove();
+        updateBothCounts();
     }
 
 //0/6
     function doneListClick(event) {
         // handle click within #done-list
+        if (event.target.matches(".remove-btn")) {
+            removeBtnClick(event.target);
+        }
     }
 
 // 0/8
@@ -115,5 +120,7 @@ function doneBtnClick(todoItem) {
     clearAllBtn.addEventListener("click", clearAll);
 
     todoList.addEventListener("click", todoListClick);
+
+    doneList.addEventListener("click", doneListClick);
 
     clearAll();
