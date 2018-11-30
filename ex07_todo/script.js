@@ -79,6 +79,7 @@ function doneBtnClick(todoItem) {
 
   const todo = todoItem;
   todo.classList.remove('active');
+
   const a = todo.querySelector('.done-btn');
   a.classList.remove('done-btn');
   a.classList.add('remove-btn');
@@ -110,10 +111,12 @@ function boxClick(box) {
 function todoListClick(event) {
   // handle click within #todo-list
   if(event.target.matches('.done-btn')){
+
     const doneBtn= event.target.closest('.box');
     doneBtnClick(doneBtn);
   }
     else if(event.target.matches('.box')){
+
         boxClick(event.target);
     }
 }
@@ -130,6 +133,7 @@ function removeBtnClick(doneItem) {
 function doneListClick(event) {
   // handle click within #done-list
   if(event.target.matches('.remove-btn')){
+    
     const removeBtn = event.target.closest(".box");
     removeBtnClick(removeBtn);
   }
