@@ -19,6 +19,9 @@ function createNewTodo(text) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('box');
     todoList.appendChild(newDiv);
+    var newT = todoInput.value;
+    // document.getElementByTag("p").innerHTML = newT;
+    newDiv.innerHTML = newT;
     return newDiv;
 }
 
@@ -26,8 +29,8 @@ function createNewTodo(text) {
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list // moet aantal weten => .length
-    var todoNumberTotal = todoList.children.length;
-    return todoNumberTotal;
+  //   var todoNumberTotal = todoList.children.length;
+    return todoList.children.length;
 }
 
 // 0/2
