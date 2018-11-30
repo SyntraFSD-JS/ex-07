@@ -64,6 +64,7 @@ function clearAll() {
     let clearbox = clearboxes[i];
     clearbox.remove();
   }
+  updateBothCounts();
   // empty #todo-list
   // empty #done-list
 }
