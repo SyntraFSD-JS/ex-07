@@ -78,12 +78,14 @@ function clearAll() {
 }
 
 // 0/8
-function doneBtnClick(todoItem) {
-  // move todo-item to #done-list
-  // (look at html)
+function doneBtnClick(item) {
+    // move todo-item to #done-list
+    // (look at html)
 
+    const box = item.closest('.box');
+        doneList.appendChild(item);
+        updateDoneCount();
 
-    doneList.appendChild(todoItem);
 }
 
 // 0/12
@@ -105,6 +107,9 @@ function boxClick(box) {
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
+    if (event.target.matches('.done-btn')) {
+        doneListClick(event.target)
+    }
 
 }
 
