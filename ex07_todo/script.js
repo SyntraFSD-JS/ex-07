@@ -56,6 +56,7 @@ function save(todoList) {
   // and make new todo item
   createNewTodo(textVal);
   updateTodoCount();
+  todoInput.value = "";
 }
 
 // 0/4
