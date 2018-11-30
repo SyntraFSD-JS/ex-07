@@ -23,9 +23,7 @@ function createNewTodo(text) {
   let t = document.createTextNode(text);
   textBox.appendChild(t);
   //create the <a> element
-  newBox.innerHTML = '<a class="done-btn fas fa-check-circle fa-2x"></a>'
-  // (look at html)
-  return newBox;
+  newBox.innerHTML = '<a class="done-btn fas fa-check-circle fa-2x"></a>';
 }
 
 // 0/2
@@ -48,7 +46,9 @@ function updateBothCounts() {
 // 0/2
 function save() {
   // save value of #todo-input
+  const textVal = todoInput.value;
   // and make new todo item
+  createNewTodo(textVal);
 }
 
 // 0/4
@@ -89,7 +89,7 @@ function doneListClick(event) {
 
 //add eventListeners to
 // saveBtn
-saveBtn.addEventListener('click', createNewTodo());
+saveBtn.addEventListener('click', save());
 // clearAllBtn
 clearAllBtn.addEventListener('click', clearAll());
 // todoList
