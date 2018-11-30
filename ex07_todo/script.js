@@ -78,6 +78,11 @@ function doneBtnClick(todoItem) {
   // (look at html)
 
   const todo = todoItem;
+  todo.classList.remove('active');
+  const a = todo.querySelector('.done-btn');
+  a.classList.remove('done-btn');
+  a.classList.add('remove-btn');
+
   todoItem.remove();
   doneList.appendChild(todo);
 }
