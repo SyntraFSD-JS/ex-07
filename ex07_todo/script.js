@@ -18,8 +18,8 @@ function createNewTodo(text) {
   // (look at html)
     const newDiv = document.createElement('div');
     newDiv.classList.add('box');
+    todoList.appendChild(newDiv);
     return newDiv;
-
 }
 
 // 0/2
@@ -53,9 +53,8 @@ function save() {
     //wat moet je saven? de todoInput (al gedefineerd)
     //waar? method appendChild
     //createNewTodo
-
-    var text = document.getElementById('todo-input');
-
+    const newText = todoInput.value;
+    createNewTodo(newText);
 }
 
 // 0/4
@@ -95,7 +94,7 @@ function doneListClick(event) {
 // 0/8
 
 //add eventListeners to
-// saveBtn
+saveBtn.addEventListener('click', save);
 // clearAllBtn
 // todoList
 // doneList
