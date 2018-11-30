@@ -18,7 +18,7 @@ function createNewTodo(text) {
     // (look at html)
     const newBox = document.createElement('div');
     newBox.classList.add('box');
-    newBox.innerHTML = todoInput.value + '<a class="done-btn fas fa-check-circle fa-2x"></a>';
+    newBox.innerHTML = '<p>' + todoInput.value + '</p> <a class="done-btn fas fa-check-circle fa-2x"></a>';
 
     return newBox;
 }
@@ -81,17 +81,17 @@ function boxClick(box) {
     // if box is .active remove active class
     // else add active class
     // only one todo-item can have the class active
-    /*for (let i = 0; i < doneList.children.length; i++){
-        const doneItem = doneList.childNodes[i];
 
-            doneItem.classList.remove('active');
+    if (box.matches(".active")) {
+        box.classList.remove("active");
+    } else {
+        for (let i = 0; i < todoList.children.length; i++) {
+            const boxItem = todoList.children[i];
+            boxItem.classList.remove("active");
+        }
 
-    } */
-
-    if (event.target.matches(".active")) {
-        box.classList.remove(".active");
+        box.classList.add("active");
     }
-
 }
 
 // 0/12
@@ -99,26 +99,27 @@ function todoListClick(event) {
     // handle click within #todo-list
     if (event.target.matches(".done-btn")) {
         doneBtnClick(event.target);
-    } else if(event.target.matches(".box")) {
-        boxClick(event.target);
+    } else if (event.target.matches(".box")  || (event.target.matches("p"))) {
+        const todoItemParent = event.target.closest('.box');
+        boxClick(todoItemParent);
     }
 }
 
 // 0/4
-    function removeBtnClick(doneItem) {
-        // remove doneItem
-        const doneItemParent = doneItem.closest('.box');
-        doneItemParent.remove();
-        updateBothCounts();
-    }
+function removeBtnClick(doneItem) {
+    // remove doneItem
+    const doneItemParent = doneItem.closest('.box');
+    doneItemParent.remove();
+    updateBothCounts();
+}
 
 //0/6
-    function doneListClick(event) {
-        // handle click within #done-list
-        if (event.target.matches(".remove-btn")) {
-            removeBtnClick(event.target);
-        }
+function doneListClick(event) {
+    // handle click within #done-list
+    if (event.target.matches(".remove-btn")) {
+        removeBtnClick(event.target);
     }
+}
 
 // 0/8
 
@@ -128,12 +129,12 @@ function todoListClick(event) {
 // todoList
 // doneList
 
-    saveBtn.addEventListener("click", save);
+saveBtn.addEventListener("click", save);
 
-    clearAllBtn.addEventListener("click", clearAll);
+clearAllBtn.addEventListener("click", clearAll);
 
-    todoList.addEventListener("click", todoListClick);
+todoList.addEventListener("click", todoListClick);
 
-    doneList.addEventListener("click", doneListClick);
+doneList.addEventListener("click", doneListClick);
 
-    clearAll();
+clearAll();
