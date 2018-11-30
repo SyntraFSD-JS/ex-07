@@ -50,6 +50,9 @@ function updateBothCounts() {
 function save() {
   // save value of #todo-input
   // and make new todo item
+  let inputText = todoInput.value;
+  const newDiv = createNewTodo(inputText);
+  todoList.appendChild(newDiv);
 }
 
 // 0/4
@@ -94,5 +97,9 @@ function doneListClick(event) {
 // clearAllBtn
 // todoList
 // doneList
+saveBtn.addEventListener('click',save);
+clearAllBtn.addEventListener('click',clearall);
+todoList.addEventListerner('click',todoListClick);
+doneList.addEventListener('click',doneListClick);
 
 clearAll();
