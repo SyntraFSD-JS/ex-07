@@ -73,6 +73,7 @@ function clearAll() {
   // empty #done-list
   todoList.innerHTML = '';
   doneList.innerHTML= '';
+  updateBothCounts();
 }
 
 // 0/8
@@ -96,11 +97,16 @@ function boxClick(box) {
   // else add active class
   // only one todo-item can have the class active
 
-  if (event.target.matches(".active"))  {
-    box.classList.remove(".active");
+  if (box.matches(".active"))  {
+    box.classList.remove("active");
   }
   else {
-    box.classList.add(".active");
+    const todoBox = document.querySelectorAll("#todo-list .box");
+    
+    todoBox.forEach ( function(box) {
+      box.classList.remove("active");
+    })
+    box.classList.add("active");
   }
 }
 
@@ -109,8 +115,12 @@ function todoListClick(event) {
   // handle click within #todo-list
   if (event.target.matches(".done-btn")) {
     doneBtnClick(event.target);
-    boxClick(event.target);
   }
+  else if (event.target.matches(".box")  || event.target.matches(".box p")) {
+    boxClick(event.target.closest(".box"));
+    console.log('boxClick');
+  }
+
 }
 
 // 0/4
