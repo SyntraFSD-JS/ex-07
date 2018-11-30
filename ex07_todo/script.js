@@ -78,6 +78,8 @@ function doneBtnClick(todoItem) {
     // (look at html)
     const boxSelector = todoItem.closest('.box');
     doneList.appendChild(boxSelector);
+    const className = todoItem.closest('.done-btn')
+    boxSelector.removeChild(className);
 }
 
 // 0/12
@@ -91,7 +93,7 @@ function boxClick(box) {
 function todoListClick(event) {
     // handle click within #todo-list
     const doneButton = event.target;
-    if (doneButton.matches('.fas')) {
+    if (doneButton.matches('.done-btn')) {
         doneBtnClick(doneButton);
     }
     updateBothCounts();
@@ -100,6 +102,7 @@ function todoListClick(event) {
 // 0/4
 function removeBtnClick(doneItem) {
   // remove doneItem
+  
 }
 
 //0/6
