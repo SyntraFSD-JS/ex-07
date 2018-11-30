@@ -57,7 +57,11 @@ function save() {
 
 // 0/4
 function clearAll() {
-
+  clearboxes = document.querySelectorAll('.box');
+  for(i=0;i<=clearboxes.length;i++){
+    let clearbox = clearboxes[i];
+    clearbox.remove();
+  }
   // empty #todo-list
   // empty #done-list
 }
@@ -98,7 +102,7 @@ function doneListClick(event) {
 // todoList
 // doneList
 saveBtn.addEventListener('click',save);
-clearAllBtn.addEventListener('click',clearall);
+clearAllBtn.addEventListener('click',clearAll);
 todoList.addEventListerner('click',todoListClick);
 doneList.addEventListener('click',doneListClick);
 
