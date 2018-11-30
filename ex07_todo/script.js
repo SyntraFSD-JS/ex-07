@@ -17,31 +17,37 @@ function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
     const newBox = document.createElement('div');
-    const text = document.createElement('p');
+    const ptag = document.createElement('p');
     const link = document.createElement('a');
     newBox.setAttribute("class", "box");
     link.setAttribute("class","done-btn fas fa-check-circle fa-2x");
-    
-    
+    todoList.appendChild(newBox);
+    newBox.appendChild(ptag);
+    newBox.appendChild(link);
+    return newBox;
 }
 
 // 0/2
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list
-    const numberOfInput = todoList.children.length;
-    todoCount.textContent = numberOfInput;
+    const numberOfTodoCount = todoList.children.length;
+    todoCount.textContent = numberOfTodoCount;
 }
 
 // 0/2
 function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
+  const numberOfDoneCount = doneList.children.length;
+    doneCount.textContent = numberOfDoneCount;
 }
 
 // 0/2
 function updateBothCounts() {
-  // update both counts
+    // update both counts
+    updateTodoCount();
+    updateDoneCount();
 }
 
 // 0/2
@@ -49,13 +55,19 @@ function save() {
     // save value of #todo-input
     // and make new todo item
     const todoInputValue = todoInput.value;
-    createNewTodo();
+    createNewTodo(todoInputValue);
+    updateBothCounts();
 }
 
 // 0/4
 function clearAll() {
   // empty #todo-list
   // empty #done-list
+  const box = document.querySelectorAll('.box');
+    box.forEach(element => {
+        element.remove();
+  });
+  updateBothCounts();
 }
 
 // 0/8
@@ -95,3 +107,4 @@ function doneListClick(event) {
 // doneList
 
 clearAll();
+saveBtn.addEventListener(('click'), save);
