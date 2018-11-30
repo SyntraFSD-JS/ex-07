@@ -16,10 +16,14 @@ const doneCount = document.querySelector("#done-count");
 function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
-
+  const newDiv = document.createElement('div');
+  const newP = document.createElement('p');
+  newP.textContent = input;
   newDiv.classList.add('box');
+  newDiv.appendChild(newP);
   todoList.appendChild(newDiv);
   
+
   console.log(newDiv);
   return newDiv;
 }
@@ -46,10 +50,8 @@ function save() {
   // save value in #todo-input
   // and make new todo item
   const input = todoInput.value;
-  const newDiv = document.createElement('div');
-
-  return input; 
-  
+  createNewTodo(input);
+  return input;  
 }
 
 // 0/4
@@ -94,7 +96,6 @@ function doneListClick(event) {
 // todoList
 // doneList
 
-saveBtn.addEventListener("click", createNewTodo);
 saveBtn.addEventListener("click", save);
 
 clearAll();
