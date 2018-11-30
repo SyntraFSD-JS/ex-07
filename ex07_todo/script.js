@@ -108,7 +108,7 @@ function boxClick(box) {
 function todoListClick(event) {
   // handle click within #todo-list
     if (event.target.matches('.done-btn')) {
-        doneListClick(event.target)
+        doneListClick(event.target);
     }
 
 }
@@ -121,6 +121,9 @@ function removeBtnClick(doneItem) {
 //0/6
 function doneListClick(event) {
   // handle click within #done-list
+    if (event.target.matches('.remove-btn')) {
+        doneListClick(event.target);
+    }
 }
 
 // 0/8
