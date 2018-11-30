@@ -29,24 +29,26 @@ function createNewTodo(text) {
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list // moet aantal weten => .length
-  //   var todoNumberTotal = todoList.children.length;
-    return todoList.children.length;
+    var newTotalTodo =  todoList.children.length;
+    todoCount.textContent = newTotalTodo;
+
 }
 
 // 0/2
 function updateDoneCount() {
-  // update #done-count
+  // update #done-count  //   var todoNumberTotal = todoList.children.length;
   // with number of done items in #done-list
-    var doneNumberTotal = doneList.children.length;
-    return doneNumberTotal;
+    var newTotalDone = doneList.children.length;
+    doneList.textcontent = newTotalDone;
+
 }
 
 // 0/2
 function updateBothCounts() {
   // update both counts
   //   const counts = this.value;
-    updateTodoCount(todoNumberTotal);
-    updateDoneCount(doneNumberTotal);
+    updateTodoCount(newTotalTodo);
+    updateDoneCount(newTotalDone);
 }
 
 // 0/2
@@ -58,6 +60,8 @@ function save() {
     //createNewTodo
     const newText = todoInput.value;
     createNewTodo(newText);
+    updateTodoCount();
+    updateDoneCount();
 }
 
 // 0/4
@@ -98,8 +102,8 @@ function doneListClick(event) {
 
 //add eventListeners to
 saveBtn.addEventListener('click', save);
-// clearAllBtn
-// todoList
-// doneList
+clearAllBtn.addEventListener('click', clearAll);
+todoList.addEventListener('click', );
+doneList.addEventListener('click', )
 
 clearAll();
