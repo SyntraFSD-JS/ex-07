@@ -108,11 +108,17 @@ function todoListClick(event) {
 // 0/4
 function removeBtnClick(doneItem) {
   // remove doneItem
+
+  doneItem.remove();
 }
 
 //0/6
 function doneListClick(event) {
   // handle click within #done-list
+  if(event.target.matches('.box')){
+    const removeBtn = event.target.closest(".remove-btn");
+    removeBtnClick(removeBtn);
+  }
 }
 
 // 0/8
