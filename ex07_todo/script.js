@@ -15,6 +15,9 @@ const doneCount = document.querySelectorAll('#done-count');
 // 0/8
 function createNewTodo(text) {
   // return new .box for #todo-list
+  const newDiv = todoList.appendChild('div');
+  newDiv.classList.add('box');
+  return newDiv;
   // (look at html)
 }
 
@@ -38,18 +41,24 @@ function updateBothCounts() {
 // 0/2
 function save() {
   // save value of #todo-input
-  todoInput.value
+  let text = todoInput.value;
   // and make new todo item
-  todoList.appendChild('div');
-  this.classList.add('box');
-  
+  createNewTodo.innerHTML = text;
+
 
 }
 
 // 0/4
 function clearAll() {
   // empty #todo-list
+  while (todoList.hasChildNodes()) {
+    todoList.removeChild(todoList.lastChild);
+  }
+ 
   // empty #done-list
+  while doneList.hasChildNodes()) {
+    doneList.removeChild(doneList.lastChild);
+  };
 }
 
 // 0/8
