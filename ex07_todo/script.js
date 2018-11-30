@@ -76,8 +76,8 @@ function clearAll() {
 function doneBtnClick(todoItem) {
     // move todo-item to #done-list
     // (look at html)
-    const boxSelector = document.closest('.box');
-    boxSelector.appendChild(doneList);
+    const boxSelector = todoItem.closest('.box');
+    doneList.appendChild(boxSelector);
 }
 
 // 0/12
@@ -91,10 +91,10 @@ function boxClick(box) {
 function todoListClick(event) {
     // handle click within #todo-list
     const doneButton = event.target;
-    if (doneButton.matches('.done-btn')) {
+    if (doneButton.matches('.fas')) {
         doneBtnClick(doneButton);
     }
-    
+    updateBothCounts();
 }
 
 // 0/4
