@@ -41,6 +41,13 @@ function updateDoneCount() {
 // 0/2
 function updateBothCounts() {
   // update both counts
+    const counts = this.value;
+    //  this when function is executed by event => event.target
+    //  this.value == event.target.value
+    /*const todoCount = getWordCount(currentText);
+    const Count = getLetterCount(currentText);*/
+    updateTodoCount(todoNumberTotal);
+    updateDoneCount(doneNumberTotal);
 }
 
 // 0/2
