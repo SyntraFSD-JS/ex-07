@@ -34,7 +34,7 @@ function updateTodoCount() {
 // 0/2
 function updateDoneCount() {
   const donecounter = doneList.querySelectorAll('.box');
-  doneList.textContent = donecounter.length;
+  doneCount.textContent = donecounter.length;
   // update #done-count
   // with number of done items in #done-list
 }
@@ -73,9 +73,8 @@ function doneBtnClick(todoItem) {
   // (look at html)
   let todoItemParent = todoItem.closest('.box');
   todoItemParent.classList.remove('done-btn','fa-check-circle');
-  todoItemParent.classList.add('remove-btn','fa-times-circle');
+  todoItem.classList.add('remove-btn','fa-times-circle');
   doneList.appendChild(todoItemParent);
-  
 }
 
 // 0/12
@@ -98,7 +97,7 @@ function todoListClick(event) {
 function removeBtnClick(doneItem) {
   // remove doneItem
   let removeParent = doneItem.closest('.box');
-  removeParent.remove;
+  removeParent.remove();
 }
 
 //0/6
