@@ -18,10 +18,13 @@ function createNewTodo(text) {
   // (look at html)
     const newDiv = document.createElement('div');
     newDiv.classList.add('box');
-    todoList.appendChild(newDiv);
+    // newDiv.classList.add('done-btn fas fa-check-circle fa-2x');
     var newT = todoInput.value;
-    // document.getElementByTag("p").innerHTML = newT;
     newDiv.innerHTML = newT;
+    // newDiv.innerHTML = <a class="done-btn fas fa-check-circle fa-2x"></a>;
+    // newDiv.classList.add('done-btn fas fa-check-circle fa-2x');
+    todoList.appendChild(newDiv);
+
     return newDiv;
 }
 
@@ -68,12 +71,18 @@ function save() {
 function clearAll() {
   // empty #todo-list
   // empty #done-list
+    if (event.target.matches('#clear-all-btn')){
+        todoList.remove();
+        doneList.remove;
 }
 
 // 0/8
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
+
+
+    doneList.appendChild(todoItem);
 }
 
 // 0/12
@@ -81,11 +90,21 @@ function boxClick(box) {
   // if box is .active remove active class
   // else add active class
   // only one todo-item can have the class active
+
+    for(let i = 0; i < todoList.children.length; i++) {
+        const todoItem = todoList.children[i];
+        if (parseInt(todoItem.dataset.index) === index) {
+            todoItem.classList.add('active');
+        } else {
+            todoItem.classList.remove('active');
+        }
+    }
 }
 
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
+
 }
 
 // 0/4
@@ -103,7 +122,7 @@ function doneListClick(event) {
 //add eventListeners to
 saveBtn.addEventListener('click', save);
 clearAllBtn.addEventListener('click', clearAll);
-todoList.addEventListener('click', );
-doneList.addEventListener('click', )
+todoList.addEventListener('click', todoListClick);
+doneList.addEventListener('click', doneListClick);
 
 clearAll();
