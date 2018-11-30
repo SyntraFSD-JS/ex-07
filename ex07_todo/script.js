@@ -20,11 +20,11 @@ function createNewTodo(text) {
     const textElement = document.createElement('p');
     const link = document.createElement('a');
     newBox.setAttribute("class", "box");
-    //textElement.textContent(text);
+    textElement.textContent = text;
     link.setAttribute("class","done-btn fas fa-check-circle fa-2x");
-    todoList.appendChild(newBox);
     newBox.appendChild(textElement);
     newBox.appendChild(link);
+    todoList.appendChild(newBox);
     return newBox;
 }
 
@@ -75,6 +75,7 @@ function clearAll() {
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
+  
 }
 
 // 0/12
@@ -87,6 +88,8 @@ function boxClick(box) {
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
+  const doneButton = event.target;
+  
 }
 
 // 0/4
@@ -107,5 +110,8 @@ function doneListClick(event) {
 // todoList
 // doneList
 
-clearAll();
+
 saveBtn.addEventListener(('click'), save);
+clearAllBtn.addEventListener(('click'), clearAll);
+
+clearAll();
