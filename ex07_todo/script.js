@@ -20,23 +20,25 @@ function createNewTodo(text) {
   todoList.appendChild(newDiv);
   const par = document.createElement('p');
   newDiv.appendChild(par);
-  newDiv.querySelector("p").textContent= text;
- return par;
+  newDiv.querySelector("p").textContent = text;
+  return par;
 }
 // 0/2
-function updateTodoCount() {
+function updateTodoCount(todoCount) {
   // update #todo-count
   // with number of todo items in #todo-list
   const numberOfInputs = todoList.children.length;
   todoCount.textContent = numberOfInputs;
+  return todoCount;
 }
 
 // 0/2
-function updateDoneCount() {
+function updateDoneCount(doneCount) {
   // update #done-count
   // with number of done items in #done-list
   const numberOfInputs = doneList.children.length;
   doneCount.textContent = numberOfInputs;
+  return doneCount;
 
 }
 
@@ -54,6 +56,7 @@ function save() {
   let text = todoInput.textContent;
   // and make new todo item
   createNewTodo(text);
+  todoInput.value = "";
 }
 
 // 0/4
@@ -73,6 +76,9 @@ function clearAll() {
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
+
+
+
 }
 
 // 0/12
@@ -80,11 +86,15 @@ function boxClick(box) {
   // if box is .active remove active class
   // else add active class
   // only one todo-item can have the class active
+
+
 }
 
 // 0/12
 function todoListClick(event) {
   // handle click within #todo-list
+
+  
 }
 
 // 0/4
@@ -105,6 +115,8 @@ saveBtn.addEventListener('click', save);
 // clearAllBtn
 clearAllBtn.addEventListener('click', clearAll);
 // todoList
+
 // doneList
+doneButton.addEventListener('click', doneBtnClick);
 
 clearAll();
