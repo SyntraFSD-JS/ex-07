@@ -52,6 +52,7 @@ function save() {
     // save value of #todo-input
     // and make new todo item
     let addItem = createNewTodo(todoInput);
+    todoInput.value = '';
     todoList.appendChild(addItem);
     updateBothCounts();
 
