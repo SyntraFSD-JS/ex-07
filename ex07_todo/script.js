@@ -95,6 +95,13 @@ function boxClick(box) {
   // if box is .active remove active class
   // else add active class
   // only one todo-item can have the class active
+
+  if (event.target.matches(".active"))  {
+    box.classList.remove(".active");
+  }
+  else {
+    box.classList.add(".active");
+  }
 }
 
 // 0/12
@@ -102,6 +109,7 @@ function todoListClick(event) {
   // handle click within #todo-list
   if (event.target.matches(".done-btn")) {
     doneBtnClick(event.target);
+    boxClick(event.target);
   }
 }
 
@@ -134,6 +142,5 @@ saveBtn.addEventListener("click", save);
 todoList.addEventListener("click", todoListClick);
 clearAllBtn.addEventListener("click", clearAll);
 doneList.addEventListener("click", doneListClick);
-
 
 clearAll();
