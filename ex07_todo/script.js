@@ -53,12 +53,13 @@ function save() {
   let inputText = todoInput.value;
   const newDiv = createNewTodo(inputText);
   todoList.appendChild(newDiv);
+  updateBothCounts();
 }
 
 // 0/4
 function clearAll() {
-  clearboxes = document.querySelectorAll('.box');
-  for(i=0;i<=clearboxes.length;i++){
+  const clearboxes = document.querySelectorAll('.box');
+  for(let i=0;i<clearboxes.length;i++){
     let clearbox = clearboxes[i];
     clearbox.remove();
   }
@@ -70,7 +71,10 @@ function clearAll() {
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
-  doneList.appendChild(todoItem);
+  let todoItemParent = todoItem.closest('.box');
+  todoItemParent.classList.remove('done-btn','fa-check-circle');
+  todoItemParent.classList.add('remove-btn','fa-times-circle');
+  doneList.appendChild(todoItemParent);
   
 }
 
@@ -85,10 +89,7 @@ function boxClick(box) {
 function todoListClick(event) {
   // handle click within #todo-list
   if(event.target.matches('.done-btn')){
-    let todoItem = event.target.closest('.box');
-    event.target.classList.remove('done-btn','fa-check-circle');
-    event.target.classList.add('remove-btn','fa-times-circle');
-    doneBtnClick(todoItem);
+    doneBtnClick(event.target);
     updateBothCounts();
   }
 }
@@ -96,14 +97,16 @@ function todoListClick(event) {
 // 0/4
 function removeBtnClick(doneItem) {
   // remove doneItem
+  let removeParent = doneItem.closest('.box');
+  removeParent.remove;
 }
 
 //0/6
 function doneListClick(event) {
   // handle click within #done-list`
   if(event.target.matches('.remove-btn')){
-    todoItem = event.target.textContent;
-    removeBtnClick(todoItem);
+    removeBtnClick(event.target);
+    updateBothCounts(); 
   }
 }
 
@@ -116,7 +119,7 @@ function doneListClick(event) {
 // doneList
 saveBtn.addEventListener('click',save);
 clearAllBtn.addEventListener('click',clearAll);
-todoList.addEventListerner('click',todoListClick);
+todoList.addEventListener('click',todoListClick);
 doneList.addEventListener('click',doneListClick);
 
 clearAll();
