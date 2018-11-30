@@ -25,14 +25,17 @@ function createNewTodo(text) {
 // 0/2
 function updateTodoCount() {
   // update #todo-count
-  // with number of todo items in #todo-list
-
+  // with number of todo items in #todo-list // moet aantal weten => .length
+    var todoNumberTotal = todoList.children.length;
+    return todoNumberTotal;
 }
 
 // 0/2
 function updateDoneCount() {
   // update #done-count
   // with number of done items in #done-list
+    var doneNumberTotal = doneList.children.length;
+    return doneNumberTotal;
 }
 
 // 0/2
