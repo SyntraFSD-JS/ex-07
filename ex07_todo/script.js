@@ -4,13 +4,13 @@
 // clean code (indentation)
 
 // 0/7
-const todoInput;
-const saveBtn;
-const clearAllBtn;
-const todoList;
-const todoCount;
-const doneList;
-const doneCount;
+const todoInput = document.querySelector(#todo-input);
+const saveBtn = document.querySelector(#save-btn);
+const clearAllBtn = document.querySelector(#clear-all-btn);
+const todoList = document.querySelector(#todo-list);
+const todoCount = document.querySelector(#todo-count);
+const doneList = document.querySelector(#done-list);
+const doneCount = document.querySelector(#done-count);
 
 // 0/8
 function createNewTodo(text) {
