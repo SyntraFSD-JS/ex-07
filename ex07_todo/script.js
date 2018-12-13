@@ -1,9 +1,10 @@
-// 0/10
+// 74.5/80
+// 10/10
 // ten points for:
 // pushing regularly (every 30 minutes)
 // clean code (indentation)
 
-// 0/7
+// 7/7
 const todoInput = document.querySelector("#todo-input");
 const saveBtn = document.querySelector("#save-btn");
 const clearAllBtn = document.querySelector("#clear-all-btn");
@@ -12,7 +13,9 @@ const todoCount = document.querySelector("#todo-count");
 const doneList = document.querySelector("#done-list");
 const doneCount = document.querySelector("#done-count");
 
-// 0/8
+// 7/8
+// parameter niet gebruikt, tenminste verwijderen
+// en zeker niet invullen bij gebruik
 function createNewTodo(text) {
     // return new .box for #todo-list
     // (look at html)
@@ -23,7 +26,7 @@ function createNewTodo(text) {
     return newBox;
 }
 
-// 0/2
+// 2/2
 function updateTodoCount() {
     // update #todo-count
     // with number of todo items in #todo-list
@@ -31,7 +34,7 @@ function updateTodoCount() {
     todoCount.innerHTML = todoCounter;
 }
 
-// 0/2
+// 2/2
 function updateDoneCount() {
     // update #done-count
     // with number of done items in #done-list
@@ -40,14 +43,14 @@ function updateDoneCount() {
 
 }
 
-// 0/2
+// 2/2
 function updateBothCounts() {
     // update both counts
     updateTodoCount();
     updateDoneCount();
 }
 
-// 0/2
+// 2/2
 function save() {
     // save value of #todo-input
     // and make new todo item
@@ -58,7 +61,7 @@ function save() {
 
 }
 
-// 0/4
+// 4/4
 function clearAll() {
     // empty #todo-list
     // empty #done-list
@@ -67,7 +70,8 @@ function clearAll() {
     updateBothCounts();
 }
 
-// 0/8
+// 5/8
+// todoInput.value is hier niet van toepassing
 function doneBtnClick(todoItem) {
     // move todo-item to #done-list
     // (look at html)
@@ -77,7 +81,8 @@ function doneBtnClick(todoItem) {
     updateBothCounts();
 }
 
-// 0/12
+// 11.5/12
+// ik zie toch liever foreach
 function boxClick(box) {
     // if box is .active remove active class
     // else add active class
@@ -95,7 +100,7 @@ function boxClick(box) {
     }
 }
 
-// 0/12
+// 12/12
 function todoListClick(event) {
     // handle click within #todo-list
     if (event.target.matches(".done-btn")) {
@@ -106,7 +111,7 @@ function todoListClick(event) {
     }
 }
 
-// 0/4
+// 4/4
 function removeBtnClick(doneItem) {
     // remove doneItem
     const doneItemParent = doneItem.closest('.box');
@@ -114,7 +119,7 @@ function removeBtnClick(doneItem) {
     updateBothCounts();
 }
 
-//0/6
+//6/6
 function doneListClick(event) {
     // handle click within #done-list
     if (event.target.matches(".remove-btn")) {
@@ -122,7 +127,7 @@ function doneListClick(event) {
     }
 }
 
-// 0/8
+// 8/8
 
 //add eventListeners to
 // saveBtn
