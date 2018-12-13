@@ -1,9 +1,10 @@
-// 0/10
+// 61/80
+// 8/10
 // ten points for:
 // pushing regularly (every 30 minutes)
 // clean code (indentation)
 
-// 0/7
+// 7/7
 const todoInput = document.querySelector('#todo-input');
 const saveBtn = document.querySelector('#save-btn');
 const clearAllBtn = document.querySelector('#clear-all-btn');
@@ -12,7 +13,7 @@ const todoCount = document.querySelector ('#todo-count');
 const doneList = document.querySelector ('#done-list');
 const doneCount = document.querySelector ('#done-count');
 
-// 0/8
+// 8/8
 function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
@@ -23,7 +24,7 @@ function createNewTodo(text) {
   return newDiv;
 }
 
-// 0/2
+// 2/2
 function updateTodoCount() {
   const todolistcounter = todoList.querySelectorAll('.box');
   todoCount.textContent = todolistcounter.length;
@@ -31,7 +32,7 @@ function updateTodoCount() {
   // with number of todo items in #todo-list
 }
 
-// 0/2
+// 2/2
 function updateDoneCount() {
   const donecounter = doneList.querySelectorAll('.box');
   doneCount.textContent = donecounter.length;
@@ -39,14 +40,14 @@ function updateDoneCount() {
   // with number of done items in #done-list
 }
 
-// 0/2
+// 2/2
 function updateBothCounts() {
   // update both counts
   updateTodoCount();
   updateDoneCount();
 }
 
-// 0/2
+// 2/2
 function save() {
   // save value of #todo-input
   // and make new todo item
@@ -57,7 +58,8 @@ function save() {
   updateBothCounts();
 }
 
-// 0/4
+// 3.5/4
+// remember innerHtml
 function clearAll() {
   const clearboxes = document.querySelectorAll('.box');
   for(let i=0;i<clearboxes.length;i++){
@@ -69,7 +71,9 @@ function clearAll() {
   // empty #done-list
 }
 
-// 0/8
+// 4.5/8
+// todoItemParent heeft geen 'done-btn', 'fa-check-circle' classes
+// de knop heeft dus dubbele classes (zie inspect element)
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   // (look at html)
@@ -97,7 +101,7 @@ function boxClick(box) {
   }*/
 }
 
-// 0/12
+// 5/12
 function todoListClick(event) {
   // handle click within #todo-list
   if(event.target.matches('.done-btn')){
@@ -106,14 +110,14 @@ function todoListClick(event) {
   }
 }
 
-// 0/4
+// 4/4
 function removeBtnClick(doneItem) {
   // remove doneItem
   let removeParent = doneItem.closest('.box');
   removeParent.remove();
 }
 
-//0/6
+//6/6
 function doneListClick(event) {
   // handle click within #done-list`
   if(event.target.matches('.remove-btn')){
@@ -122,7 +126,8 @@ function doneListClick(event) {
   }
 }
 
-// 0/8
+// 7/8
+// dubbele event listener op todoList niet nodig
 
 //add eventListeners to
 // saveBtn
