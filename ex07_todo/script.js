@@ -1,9 +1,9 @@
-// 0/10
+// 3/3
 // ten points for:
 // pushing regularly (every 30 minutes)
 // clean code (indentation)
 
-// 0/7
+// 7/7
 const todoInput = document.querySelector('#todo-input');
 const saveBtn = document.querySelector('#save-btn');
 const clearAllBtn = document.querySelector('#clear-all-btn');
@@ -12,7 +12,8 @@ const todoCount = document.querySelector('#todo-count');
 const doneList = document.querySelector('#done-list');
 const doneCount = document.querySelector('#done-count');
 
-// 0/8
+// 7/8
+// p kan ook met innerHtml
 function createNewTodo(textVal) {
   // return new .box for #todo-list
   //creates div with class box
@@ -28,28 +29,29 @@ function createNewTodo(textVal) {
   todoList.appendChild(newBox);
 }
 
-// 0/2
+// 2/2
 function updateTodoCount() {
   // update #todo-count
   todoCount.textContent = todoList.childElementCount;
   // with number of todo items in #todo-list
 }
 
-// 0/2
+// 2/2
 function updateDoneCount() {
   // update #done-count
   doneCount.innerHTML = doneList.childElementCount;
   // with number of done items in #done-list
 }
 
-// 0/2
+// 1/2
+// gebruik bovenstaand functies
 function updateBothCounts() {
   // update both counts
   doneCount.innerHTML = doneList.childElementCount;
   todoCount.textContent = todoList.childElementCount;
 }
 
-// 0/2
+// 2/2
 function save(todoList) {
   // save value of #todo-input
   const textVal = todoInput.value;
@@ -59,7 +61,7 @@ function save(todoList) {
   todoInput.value = "";
 }
 
-// 0/4
+// 4/4
 function clearAll() {
   // empty #todo-list
   // empty #done-list
@@ -69,7 +71,9 @@ function clearAll() {
 
 }
 
-// 0/8
+// 7/8
+// eerst gebruik je checked en op lijn 82 weer todoItem
+// nogal verwarrend en onnodig
 function doneBtnClick(todoItem) {
   // move todo-item to #done-list
   const checked = todoItem;
@@ -82,7 +86,7 @@ function doneBtnClick(todoItem) {
   // (look at html)
 }
 
-// 0/12
+// 11.5/12
 function boxClick(box) {
   // if box is .active remove active class
   // else add active class
@@ -100,7 +104,7 @@ function boxClick(box) {
 
 }
 
-// 0/12
+// 12/12
 function todoListClick(event) {
   // handle click within #todo-list
   if (event.target.matches('.done-btn')) {
@@ -112,14 +116,14 @@ function todoListClick(event) {
   }
 }
 
-// 0/4
+// 4/4
 function removeBtnClick(doneItem) {
   // remove doneItem
   const removed = doneItem.closest('.box');
   removed.remove();
 }
 
-//0/6
+//6/6
 function doneListClick(event) {
   // handle click within #done-list
   if (event.target.matches('.remove-btn')){
@@ -128,7 +132,7 @@ function doneListClick(event) {
   }   
 }
 
-// 0/8
+// 8/8
 
 //add eventListeners to
 // saveBtn
