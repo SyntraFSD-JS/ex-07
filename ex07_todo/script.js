@@ -1,9 +1,11 @@
-// 0/10
+// /80
+// 2/3
 // ten points for:
 // pushing regularly (every 30 minutes)
 // clean code (indentation)
 
-// 0/7
+// 6/7
+// querySelectorAll()??
 const todoInput = document.querySelector('#todo-input');
 const saveBtn = document.querySelector('#save-btn');
 const clearAllBtn = document.querySelector('#clear-all-btn');
@@ -12,7 +14,9 @@ const todoCount = document.querySelector('#todo-count');
 const doneList = document.querySelector('#done-list');
 const doneCount = document.querySelectorAll('#done-count');
 
-// 0/8
+// 7/8
+// niet gereturned (niet echt fout)
+// innerHtml veel korter
 function createNewTodo(text) {
     // return new .box for #todo-list
     const newDiv = document.createElement('div');
@@ -26,7 +30,7 @@ function createNewTodo(text) {
     todoList.appendChild(newDiv);
 }
 
-// 0/2
+// 2/2
 function updateTodoCount() {
     // update #todo-count
     // with number of todo items in #todo-list
@@ -35,7 +39,7 @@ function updateTodoCount() {
     return todoCount;
 }
 
-// 0/2
+// 2/2
 function updateDoneCount() {
     // update #done-count
     // with number of done items in #done-list
@@ -45,7 +49,7 @@ function updateDoneCount() {
 
 }
 
-// 0/2
+// 2/2
 function updateBothCounts() {
     // update both counts
     updateTodoCount();
@@ -53,7 +57,7 @@ function updateBothCounts() {
 
 }
 
-// 0/2
+// 2/2
 function save() {
     // save value of #todo-input
     let text = todoInput.value;
@@ -63,7 +67,8 @@ function save() {
     updateTodoCount();
 }
 
-// 0/4
+// 4/4
+// korter met innerHtml
 function clearAll() {
     // empty #todo-list
     while (todoList.hasChildNodes()) {
@@ -77,7 +82,7 @@ function clearAll() {
     updateBothCounts();
 }
 
-// 0/8
+// 0.5/8
 function doneBtnClick(todoItem) {
     // move todo-item to #done-list
     // (look at html)
@@ -99,7 +104,7 @@ function boxClick(box) {
     }
 
 */
-// 0/12
+// 1/12
     function todoListClick(event) {
         // handle click within #todo-list
         if (event.target.matches('.done-btn')) {
@@ -118,7 +123,7 @@ function boxClick(box) {
         // handle click within #done-list
     }
 
-// 0/8
+// 4/8
 
 //add eventListeners to
 // saveBtn
