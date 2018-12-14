@@ -1,9 +1,9 @@
-// 0/10
-// ten points for:
+// 2.5/3
+// three points for:
 // pushing regularly (every 30 minutes)
 // clean code (indentation)
 
-// 0/7
+// 7/7
 const todoInput = document.querySelector('#todo-input');
 const saveBtn = document.querySelector('#save-btn');
 const clearAllBtn = document.querySelector('#clear-all-btn');
@@ -12,7 +12,7 @@ const todoCount = document.querySelector('#todo-count');
 const doneList = document.querySelector('#done-list');
 const doneCount = document.querySelector('#done-count');
 
-// 0/8
+// 8/8
 function createNewTodo(text) {
     // return new .box for #todo-list
     // (look at html)
@@ -23,7 +23,7 @@ function createNewTodo(text) {
     updateTodoCount();
 }
 
-// 0/2
+// 2/2
 function updateTodoCount() {
     // update #todo-count
     // with number of todo items in #todo-list
@@ -31,7 +31,7 @@ function updateTodoCount() {
     todoCount.textContent = numberOfTodoCount;
 }
 
-// 0/2
+// 2/2
 function updateDoneCount() {
     // update #done-count
     // with number of done items in #done-list
@@ -39,14 +39,15 @@ function updateDoneCount() {
     doneCount.textContent = numberOfDoneCount;
 }
 
-// 0/2
+// 2/2
 function updateBothCounts() {
     // update both counts
     updateTodoCount();
     updateDoneCount();
 }
 
-// 0/2
+// 1.5/2
+// count wordt ook al geupdated in createNewTodo()
 function save() {
     // save value of #todo-input
     // and make new todo item
@@ -56,7 +57,9 @@ function save() {
     todoInput.value = "";
 }
 
-// 0/4
+// 3.5/4
+// korter met innerHtml
+// rare indentering
 function clearAll() {
     // empty #todo-list
     // empty #done-list
@@ -67,7 +70,8 @@ function clearAll() {
     updateBothCounts();
 }
 
-// 0/8
+// 7.5/8
+// remove is niet nodig
 function doneBtnClick(todoItem) {
     // move todo-item to #done-list
     // (look at html)
@@ -78,7 +82,9 @@ function doneBtnClick(todoItem) {
     doneList.appendChild(todoItem);
 }
 
-// 0/12
+// 12/12
+// ; vergeten
+// toggle is cool
 function boxClick(box) {
     // if box is .active remove active class
     // else add active class
@@ -93,7 +99,8 @@ function boxClick(box) {
     });
 }
 
-// 0/12
+// 12/12
+// ; vergeten
 function todoListClick(event) {
     // handle click within #todo-list
     const doneButton= event.target.closest('.box');
@@ -107,13 +114,13 @@ function todoListClick(event) {
     updateBothCounts();
 }
 
-// 0/4
+// 4/4
 function removeBtnClick(doneItem) {
   // remove doneItem
   doneItem.remove();
 }
 
-//0/6
+//6/6
 function doneListClick(event) {
     // handle click within #done-list
     if(event.target.matches('.remove-btn')){
@@ -123,7 +130,7 @@ function doneListClick(event) {
     updateBothCounts();
 }
 
-// 0/8
+// 8/8
 
 //add eventListeners to
 // saveBtn
