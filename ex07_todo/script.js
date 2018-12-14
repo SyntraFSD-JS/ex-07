@@ -1,9 +1,10 @@
-// 0/10
+// 44.5/80
+// 10/10
 // ten points for:
 // pushing regularly (every 30 minutes)
 // clean code (indentation)
 
-// 0/7
+// 7/7
 const todoInput = document.querySelector('#todo-input');
 const saveBtn = document.querySelector('#save-btn');
 const clearAllBtn = document.querySelector('#clear-all-btn');
@@ -12,7 +13,7 @@ const todoCount = document.querySelector('#todo-count');
 const doneList = document.querySelector('#done-list');
 const doneCount = document.querySelector('#done-count');
 
-// 0/8
+// 4/8
 function createNewTodo(text) {
   // return new .box for #todo-list
   // (look at html)
@@ -28,7 +29,7 @@ function createNewTodo(text) {
     return newDiv;
 }
 
-// 0/2
+// 2/2
 function updateTodoCount() {
   // update #todo-count
   // with number of todo items in #todo-list // moet aantal weten => .length
@@ -37,7 +38,8 @@ function updateTodoCount() {
 
 }
 
-// 0/2
+// 1/2
+// doneList??
 function updateDoneCount() {
   // update #done-count  //   var todoNumberTotal = todoList.children.length;
   // with number of done items in #done-list
@@ -46,14 +48,15 @@ function updateDoneCount() {
 
 }
 
-// 0/2
+// 1/2
+// functies hebben geen parameters
 function updateBothCounts() {
   // update both counts
     updateTodoCount(newTotalTodo);
     updateDoneCount(newTotalDone);
 }
 
-// 0/2
+// 2/2
 function save() {
   // save value in #todo-input
   // and make new todo item
@@ -65,7 +68,8 @@ function save() {
     updateTodoCount();
 }
 
-// 0/4
+// 2.5/4
+// waarom niet updateBothCounts()?
 function clearAll() {
   // empty #todo-list
   // empty #done-list
@@ -77,7 +81,7 @@ function clearAll() {
 
 }
 
-// 0/8
+// 2/8
 function doneBtnClick(item) {
     // move todo-item to #done-list
     // (look at html)
@@ -88,7 +92,9 @@ function doneBtnClick(item) {
 
 }
 
-// 0/12
+// 2/12
+// wat is index?
+// er is geen dataset.index
 function boxClick(box) {
   // if box is .active remove active class
   // else add active class
@@ -104,7 +110,8 @@ function boxClick(box) {
     }
 }
 
-// 0/12
+// 1.5/12
+// doneListClick()?
 function todoListClick(event) {
   // handle click within #todo-list
     if (event.target.matches('.done-btn')) {
@@ -118,7 +125,8 @@ function removeBtnClick(doneItem) {
   // remove doneItem
 }
 
-//0/6
+// 1.5/6
+// spreekt zichzelf aan? Infinite loop alert!!
 function doneListClick(event) {
   // handle click within #done-list
     if (event.target.matches('.remove-btn')) {
@@ -126,7 +134,7 @@ function doneListClick(event) {
     }
 }
 
-// 0/8
+// 8/8
 
 //add eventListeners to
 saveBtn.addEventListener('click', save);
