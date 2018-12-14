@@ -1,5 +1,5 @@
-// 74.5/80
-// 10/10
+// 69.5/80
+// 3/3
 // ten points for:
 // pushing regularly (every 30 minutes)
 // clean code (indentation)
