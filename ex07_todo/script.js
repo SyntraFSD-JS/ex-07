@@ -1,5 +1,5 @@
 // 44.5/80
-// 10/10
+// 3/3
 // ten points for:
 // pushing regularly (every 30 minutes)
 // clean code (indentation)
@@ -68,7 +68,7 @@ function save() {
     updateTodoCount();
 }
 
-// 2.5/4
+// 3/4
 // waarom niet updateBothCounts()?
 function clearAll() {
   // empty #todo-list
@@ -92,7 +92,7 @@ function doneBtnClick(item) {
 
 }
 
-// 2/12
+// 4/12
 // wat is index?
 // er is geen dataset.index
 function boxClick(box) {
@@ -110,7 +110,7 @@ function boxClick(box) {
     }
 }
 
-// 1.5/12
+// 2/12
 // doneListClick()?
 function todoListClick(event) {
   // handle click within #todo-list
