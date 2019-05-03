@@ -39,6 +39,7 @@ function updateBothCounts() {
 function save() {
   // save value of #todo-input
   // and make new todo item
+    //hallo test
 }
 
 // 0/4
